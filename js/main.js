@@ -1,19 +1,25 @@
 let containerHTML = document.getElementById("js-container");
 let categories = [];
 let selectHTML = document.getElementById("select-category");
-renderHTLM();
+renderHTLM(...iconsDB);
 getCategories();
 
-selectHTML.addEventListener("click", function(){
-    
+selectHTML.addEventListener("change", function(e){
+    filterBy(selectHTML.value);
 });
 
-function renderHTLM(){
-    for (let i = 0; i < iconsDB.length; i++) {
+function filterBy(category){
+    let filteredIcons = iconsDB.filter((icon) => icon.type == category);
+    renderHTLM(...filteredIcons); 
+}
+
+function renderHTLM(...arr){
+    containerHTML.innerHTML = "";    
+    for (let i = 0; i < arr.length; i++){
         let item = document.createElement("div");
         item.classList.add("item");
-        item.innerHTML = `<i style="color: ${iconsDB[i].color};" class="${iconsDB[i].family} ${iconsDB[i].prefix+iconsDB[i].name}"></i>
-                        <span>${iconsDB[i].name}</span>`;
+        item.innerHTML = `<i style="color: ${arr[i].color};" class="${arr[i].family} ${arr[i].prefix+arr[i].name}"></i>
+                        <span>${arr[i].name}</span>`;
         containerHTML.append(item);
     }
 }
