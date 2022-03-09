@@ -9,21 +9,36 @@ body{
     background-color: rgb(231, 231, 231);
 }
 
+header{
+    height: 100px;
+    background-color: #00aaf8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 .container{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 10px;
+    padding-top: 100px;
+    justify-content: space-between;
+}
+
+main{
+    padding: 30px;
 }
 
 .item{
-    width: calc((100% / 5) - 10px);
-    height: 100px;
+    margin: 10px 10px;
+    width: calc((100% / 5) - 20px);
+    height: 150px;
     background-color: rgb(255, 255, 255);
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    gap: 10px;
+    min-width: 120px; 
+    gap: 10px 0px;
 }
 
 .item i,.item span{
