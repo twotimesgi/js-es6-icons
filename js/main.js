@@ -1,5 +1,5 @@
 let containerHTML = document.getElementById("js-container");
-let categories = [];
+let categories = ["All"];
 let selectHTML = document.getElementById("select-category");
 renderHTLM(...iconsDB);
 getCategories();
@@ -9,7 +9,14 @@ selectHTML.addEventListener("change", function(e){
 });
 
 function filterBy(category){
-    let filteredIcons = iconsDB.filter((icon) => icon.type == category);
+    let filteredIcons;
+
+    if(category != "All"){
+    filteredIcons = iconsDB.filter((icon) => category == icon.type);
+    }else{
+    filteredIcons = iconsDB;
+    }
+    
     renderHTLM(...filteredIcons); 
 }
 
