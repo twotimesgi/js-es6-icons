@@ -1,4 +1,4 @@
-let iconsDB = [
+const iconsDB = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -121,16 +121,16 @@ renderHTLM(iconsDB);
 getCategories(iconsDB);
 
 selectHTML.addEventListener("change", () => {
-        filterBy(selectHTML.value);
+        filterBy(iconsDB, selectHTML.value);
     });
 
 function filterBy(category){
     let filteredIcons;
 
     if(category != "All"){
-    filteredIcons = iconsDB.filter((icon) => category == icon.type);
+    filteredIcons = arr.filter((icon) => category == icon.type);
     }else{
-    filteredIcons = iconsDB;
+    filteredIcons = arr;
     }
 
     renderHTLM(filteredIcons); 
