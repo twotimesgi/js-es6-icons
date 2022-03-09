@@ -120,9 +120,9 @@ assignColor(iconsDB);
 renderHTLM(iconsDB);
 getCategories(iconsDB);
 
-selectHTML.addEventListener("change", function(e){
-    filterBy(selectHTML.value);
-});
+selectHTML.addEventListener("change", () => {
+        filterBy(selectHTML.value);
+    });
 
 function filterBy(category){
     let filteredIcons;
@@ -158,7 +158,6 @@ function getCategories(arr){
         }
     });
 }
-
 
 function assignColor(arr){
 	arr.forEach(icon => {
